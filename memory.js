@@ -14,6 +14,7 @@ onload = () => {
     elemImagens.forEach((img, i) => {
         img.src = fundo;
         img.setAttribute('data-valor', i);
+        img.style.opacity = 0.4;
     });
 
     //Cria evento do botao início
@@ -34,5 +35,20 @@ const iniciaJogo = () => {
     }
 
 
-    
-}
+    //associar evento às imagens
+    let elemImagens = document.querySelectorAll('#memoria img');
+    elemImagens.forEach((img, i) => {
+        img.onclick = trataCliqueImagens;
+        img.style.opacity = 1;
+    });
+};
+
+//------------------------------------------
+// Processa o clique das Imagens
+//------------------------------------------
+const trataCliqueImagens = (e) => {
+    const p = +e.target.getAttribute('data-valor');
+    const valor = cartas[p];
+    e.target.src = imagens[valor -1];  
+    e.target.onclick = null; 
+};
