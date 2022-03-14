@@ -10,23 +10,7 @@ let temCartaVirada = false;
 let posicaoCartaVirada = -1;
 let valorCartaVirada = 0;
 let pontos = 0;
-
-//Barra de Timer/Progresso
-var barraProgress = new Object();
-barraProgress.porcentagem = 0;
-
-barraProgress.carregaBarra = function () {
-    
-    if (barraProgress.porcentagem > 100)
-    barraProgress.porcentagem = 0;
-    
-    $(".barra-progresso").css("width", barraProgress.porcentagem + "%")
-    
-    barraProgress.porcentagem +=2;
-    setTimeout(barraProgress.carregaBarra, 1000);
-}
-
-
+const timerDoJogo = new Timer('#timer');
 
 onload = () => {
     //Carrega fundo
@@ -46,10 +30,6 @@ onload = () => {
 //--------------------------------------
 const iniciaJogo = () => {
 
-    $(function () {
-        barraProgress.carregaBarra();
-    })
-
     //embaralhar as cartas
     for(let i=0; i<cartas.length; i++) {
         let p = Math.trunc( Math.random() * cartas.length );
@@ -57,7 +37,6 @@ const iniciaJogo = () => {
         cartas[p] = cartas[i];
         cartas[i] = aux;
     }
-
 
     //associar evento às imagens
     let elemImagens = document.querySelectorAll('#memoria img');
@@ -76,6 +55,8 @@ const iniciaJogo = () => {
 
     //ajusta a interface
     document.querySelector('#btInicio').disabled = true;
+    document.querySelector('#timer').style.backgroundColor = 'orange';
+    timerDoJogo.start();
 };
 
 //------------------------------------------
@@ -114,5 +95,32 @@ const trataCliqueImagens = (e) => {
 
     if(pontos==8) {
         document.querySelector('#btInicio').disabled = false;
+        document.querySelector('#timer').style.backgroundColor= 'lightgreen';
+        timerDoJogo.stop();
     }
 };
+
+//---------------------------------------
+// Timer
+//---------------------------------------
+function Timer(e) {
+    this.element = e;
+    this.time = 0;
+    this.control = null;
+    this.start = () => {
+        this.time=0;
+        this.control = setInterval( () => {
+            this.time++;
+            const minutes = Math.trunc(this.time/60);
+            const seconds = this.time % 60;
+            document.querySelector(this.element).innerHTML = 
+            (minutes<10?"0":"") + minutes + ':'+
+            (seconds<10?"0":"") + seconds;
+            seconds;
+        }, 1000);
+    };
+    this.stop = () =>{
+        clearInterval(this.control);
+        this.control = null;
+    };
+}
