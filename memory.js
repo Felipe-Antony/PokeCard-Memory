@@ -5,7 +5,11 @@ let fundo = 'imagens/fundo_cards/Poke_Ball_RG.png';
 
 //Estado do jogo
 let cartas = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
-
+let cliquesTravados = false;
+let temCartaVirada = false;
+let posicaoCartaVirada = -1;
+let valorCartaVirada = 0;
+let pontos = 0;
 
 onload = () => {
 
@@ -41,14 +45,55 @@ const iniciaJogo = () => {
         img.onclick = trataCliqueImagens;
         img.style.opacity = 1;
     });
+
+    //Reseta o estado do jogo
+    cliquesTravados = false;
+    temCartaVirada = false;
+    posicaoCartaVirada = -1;
+    valorCartaVirada = 0;
+    pontos = 0;
+
+    //ajusta a interface
+    document.querySelector('#btInicio').disabled = true;
 };
 
 //------------------------------------------
 // Processa o clique das Imagens
 //------------------------------------------
 const trataCliqueImagens = (e) => {
+    if(cliquesTravados) return;
     const p = +e.target.getAttribute('data-valor');
     const valor = cartas[p];
     e.target.src = imagens[valor -1];  
     e.target.onclick = null; 
+
+    if(!temCartaVirada) {
+        temCartaVirada = true;
+        posicaoCartaVirada = p;
+        valorCartaVirada = valor;
+    } else {
+        if(valor == valorCartaVirada) {
+            pontos++;
+        } else {
+            const p0 = posicaoCartaVirada;
+            cliquesTravados = true;
+            setTimeout( ()=> {
+                e.target.src = fundo;
+                e.target.onclick = trataCliqueImagens;
+                let img = document.querySelector('#memoria #i' + p0);
+                img.src = fundo;
+                img.onclick = trataCliqueImagens;
+                cliquesTravados = false;
+            }, 1500);
+        }
+        temCartaVirada = false;
+        posicaoCartaVirada = -1;
+        valorCartaVirada = 0;
+    }    
+
+    
+
+    if(pontos==8) {
+        document.querySelector('#btInicio').disabled = false;
+    }
 };
