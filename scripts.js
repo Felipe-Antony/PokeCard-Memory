@@ -119,8 +119,11 @@ function Timer(e) {
             seconds;
         }, 1000);
     };
+
     this.stop = () =>{
         clearInterval(this.control);
         this.control = null;
     };
 }
+
+
