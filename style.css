@@ -1,17 +1,36 @@
-body {
-    width: 100%;
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
-header {
+.header {
+    display: flex;
+    padding: 20px;
+    height: 120px;
+    margin-bottom: 15px;
+    background-color: gold;
+    box-shadow: inset 0 0 1em gold, 0 0 1em red;
+}
+
+#logo {
+    flex: 1 1 auto;
+    align-items: center;
+}
+#logo-img {
+    margin-left: 160px;
+}
+#logo-name {
+    flex: 1 1 auto;
     text-align: center;
+    margin-top: 10px;
 }
 
-.main {
-    float: left;
-    width: 30%;
-    height: 300px;
-    margin-left: 0%;
-    margin-right: 3%;
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 900px;
+    
 }
 
 /* Timer*/
@@ -24,9 +43,23 @@ header {
     border-radius: 10px;
 }
 
-/* Cards Memomry*/
+#aside, #nav {
+    display: flex;
+    flex-direction: column;
+    box-shadow: inset 0 0 1em gold, 0 0 1em red;
+}
+
+#section {
+    width: 500px;
+    flex-grow: 4;
+    padding: 10px;
+    text-align: center;
+    box-shadow: inset 0 0 1em gold, 0 0 1em red;
+}
+
+/* Cards Memomry */
 #memoria {
-    max-width: 0 auto;
+    width: 100%;
 }
 
 #memoria img {

@@ -10,84 +10,114 @@
     <title>PokeCard Memory</title>
 </head>
 <body>
-    <header><h1>PokeCard Memory</h1></header>
-    <div class="container">
-        
-    <!-- Conteúdo de PokeCards que podem ser encontrados -->
-    <aside class="main"></aside>
-
-    <!-- Conteúdo do Jogo -->
-    <section class="main">
-        <div id="memoria">
-            <div class="row">
-                <div class="col">
-                    <p id="timer">00:00</p>
-                </div>
-            </div>
-            <div id="imagens">
-                <div class="row">
-                    <div class="col-3">
-                        <img id="i0">
-                    </div>
-                    <div class="col-3">
-                        <img id="i1">
-                    </div><div class="col-3">
-                        <img id="i2">
-                    </div><div class="col-3">
-                        <img id="i3">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-3">
-                        <img id="i4">
-                    </div>
-                    <div class="col-3">
-                        <img id="i5">
-                    </div><div class="col-3">
-                        <img id="i6">
-                    </div><div class="col-3">
-                        <img id="i7">
-                    </div>
-                </div><div class="row">
-                    <div class="col-3">
-                        <img id="i8">
-                    </div>
-                    <div class="col-3">
-                        <img id="i9">
-                    </div><div class="col-3">
-                        <img id="i10">
-                    </div><div class="col-3">
-                        <img id="i11">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-3">
-                        <img id="i12">
-                    </div>
-                    <div class="col-3">
-                        <img id="i13">
-                    </div><div class="col-3">
-                        <img id="i14">
-                    </div><div class="col-3">
-                        <img id="i15">
-                    </div>
-                </div>
-            </div>
+    <div class="header">
+        <div id="logo">
+            <img id="logo-img" src="imagens/apple-touch-icon.png" alt="logo">
+        </div>
+        <div id="logo-name">
+            <h1>PokeCard Memory</h1>
+        </div>
+        <div id="logo">
+            <img id="logo-img" src="imagens/apple-touch-icon.png" alt="logo">
         </div>
     </div>
-    <footer id="rodape" class="row">
-        <div class="col">
-            <button id='btInicio' type="button" class="btn btn-primary btn-lg">Iniciar</button>
+    <div class="container">
+        
+        <!-- Conteúdo de PokeCards que podem ser encontrados -->
+        <div class='col' id="aside">
+            <div class="row">
+                <div class="col">
+                    <img src="imagens/fundo_cards/Poke_Ball_RG.png">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img src="imagens/fundo_cards/Poke_Ball_RG.png">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img src="imagens/fundo_cards/Poke_Ball_RG.png">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img src="imagens/fundo_cards/Poke_Ball_RG.png">
+                </div>
+            </div>
         </div>
-    </footer>
-    </section>
-    
-    <!-- Scores -->
-    <nav class="main"></nav>
+
+        <!-- Conteúdo do Jogo -->
+        <div class="col" id="section">
+            <div id="memoria">
+                <div class="row">
+                    <div class="col">
+                        <p id="timer">00:00</p>
+                    </div>
+                </div>
+                <div id="imagens">
+                    <div class="row">
+                        <div class="col-3">
+                            <img id="i0">
+                        </div>
+                        <div class="col-3">
+                            <img id="i1">
+                        </div><div class="col-3">
+                            <img id="i2">
+                        </div><div class="col-3">
+                            <img id="i3">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <img id="i4">
+                        </div>
+                        <div class="col-3">
+                            <img id="i5">
+                        </div><div class="col-3">
+                            <img id="i6">
+                        </div><div class="col-3">
+                            <img id="i7">
+                        </div>
+                    </div><div class="row">
+                        <div class="col-3">
+                            <img id="i8">
+                        </div>
+                        <div class="col-3">
+                            <img id="i9">
+                        </div><div class="col-3">
+                            <img id="i10">
+                        </div><div class="col-3">
+                            <img id="i11">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <img id="i12">
+                        </div>
+                        <div class="col-3">
+                            <img id="i13">
+                        </div><div class="col-3">
+                            <img id="i14">
+                        </div><div class="col-3">
+                            <img id="i15">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer id="rodape" class="row">
+                <div class="col">
+                    <button id='btInicio' type="button" class="btn btn-primary btn-lg">Iniciar</button>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Scores -->
+        <div class="col" id="nav"></div>
+    </div>    
 
     <!-- Rodapé-->
     <footer></footer>
-    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="scripts.js"></script>
