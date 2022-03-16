@@ -1,29 +1,26 @@
 // Imagens das cartas
 let imagens = [];
 let cont = [];
-for (let i=0; i<=7; i++) {
-    let p = Math.floor( Math.random() * 18);
-    if (cont.length == 0) {
-        cont.push(p);
-    } else {
-        for (let j=0; j<cont.length; j++) {
-            if (p==cont[j]) {
-                p++ 
-                console.log(p, cont[j]);
-                cont.push(p);
-                break;
-            }else {
-                cont.push(p);
-                break;
-            }              
-        }          
-    }  
+const maxNumbers = 18;
+
+for (let i=0; i<maxNumbers; i++) {
+    cont[i] = i +1;
 }
 
+let randomNumber;
+let tmp;
+
+for (let i=cont.length; i;) {
+    randomNumber = Math.random() * i-- | 0;
+    tmp = cont[randomNumber];
+    cont[randomNumber] = cont[i];
+    cont[i] = tmp;
+}
 console.log(cont);
-for (let i=0; i<cont.length; i++){
+for (let i=0; i<=7; i++){
     imagens.push(`imagens/pallet/${cont[i]}.png`);
 }
+
 
 let fundo = 'imagens/fundo_cards/Poke_Ball_RG.png';
 

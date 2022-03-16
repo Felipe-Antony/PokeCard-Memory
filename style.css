@@ -18,12 +18,12 @@
     align-items: center;
 }
 #logo-img {
-    margin-left: 160px;
+    margin-left: 25%;
 }
 #logo-name {
     flex: 1 1 auto;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 1%;
 }
 
 .container {
@@ -70,4 +70,36 @@
 
 #rodape {
     text-align: center;
+}
+
+/* Scores */
+
+#scores {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#box-title {
+    text-align: center;
+    flex: 1 1 auto;    
+    position: relative;
+    margin-left: -10px;
+}
+
+.title {
+    position: absolute;
+    top: 40%;
+    left: 20%;
+}
+    
+#box {
+    flex: 0.5 0.5 auto;
+    margin-left: 35%;
+    margin-top: 10%;
+}
+
+#box-temp {
+    flex: 4 1 auto;
 }
