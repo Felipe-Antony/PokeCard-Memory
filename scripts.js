@@ -1,6 +1,30 @@
 // Imagens das cartas
 let imagens = [];
-for (let i=0; i<=8; i++) imagens.push(`imagens/pallet/${i}.png`);
+let cont = [];
+for (let i=0; i<=7; i++) {
+    let p = Math.floor( Math.random() * 18);
+    if (cont.length == 0) {
+        cont.push(p);
+    } else {
+        for (let j=0; j<cont.length; j++) {
+            if (p==cont[j]) {
+                p++ 
+                console.log(p, cont[j]);
+                cont.push(p);
+                break;
+            }else {
+                cont.push(p);
+                break;
+            }              
+        }          
+    }  
+}
+
+console.log(cont);
+for (let i=0; i<cont.length; i++){
+    imagens.push(`imagens/pallet/${cont[i]}.png`);
+}
+
 let fundo = 'imagens/fundo_cards/Poke_Ball_RG.png';
 
 //Estado do jogo
